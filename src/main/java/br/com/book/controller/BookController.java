@@ -43,6 +43,8 @@ public class BookController {
 			return "redirect:/book/form/add";
 		}
 		
-		return "redirect:/lista";
+		this.bookService.save(book);
+		
+		return "redirect:/";
 	}
 }

@@ -17,7 +17,6 @@ import lombok.Setter;
 
 @Table(name = "book")
 @Entity(name = "book")
-
 public class Book {
 
 	@Id
@@ -32,9 +31,14 @@ public class Book {
 	@JoinColumn(name = "author_id")
 	private Author author;
 	
-	public Book(String name, Author author) {
+	public Book() {
+		this.name = "";
+	}
+	
+	public Book(String name, Author author, Long id) {
 		this.name = name;
 		this.author = author;
+		this.id = id;
 	}
 
 	public Long getId() {
