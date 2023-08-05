@@ -1,6 +1,7 @@
 package br.com.book.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Streamable;
@@ -23,5 +24,10 @@ public class BookService {
 		Iterable<Book> iterable = bookRepository.findAll();
 		List<Book> list = Streamable.of(iterable).toList();
 		return list;
+	}
+	
+	public Book findById(Long id) {
+		 Book book = bookRepository.findById(id).orElse(null);
+		 return book;
 	}
 }
